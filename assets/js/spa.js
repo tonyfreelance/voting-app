@@ -46,7 +46,7 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
         }
     });
 
-    function loginRequired($q, $location, $auth) {
+    var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
         var deferred = $q.defer();
         if ($auth.isAuthenticated()) {
             deferred.resolve();
@@ -55,7 +55,7 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             $location.path('/polls');
         }
         return deferred.promise;
-    }
+    }];
 }]);
 
 // Share the poll data between views
@@ -126,7 +126,7 @@ myApp.controller('loginController', ['$scope', '$auth', 'toastr', '$location', '
 
 }]);
 
-myApp.controller('logoutController', function($location, $auth, toastr) {
+myApp.controller('logoutController', ['$location', '$auth', 'toastr', function($location, $auth, toastr) {
     if (!$auth.isAuthenticated()) {
         return;
     }
@@ -135,7 +135,7 @@ myApp.controller('logoutController', function($location, $auth, toastr) {
             toastr.info('You have been logged out');
             $location.url('/');
         });
-});
+}]);
 
 
 // Navbar Controller
