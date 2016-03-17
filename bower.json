@@ -1,0 +1,30 @@
+{
+  "name": "sails-passport-authentication",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "ubuntu"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.0",
+    "font-awesome": "^4.5.0",
+    "Chart.js": "^1.0.2",
+    "angular-chart.js": "^0.8.9",
+    "angular-socialshare": "angularjs-socialshare#^0.1.20",
+    "satellizer": "^0.14.0",
+    "angular-toastr": "^1.7.0",
+    "angular-cookies": "^1.5.1"
+  }
+}

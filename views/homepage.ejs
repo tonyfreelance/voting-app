@@ -1,0 +1,31 @@
+<div id="header" ng-controller="authenticatedController">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Voting App</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="/">Home</a></li>
+          <li ng-if="isAuthenticated()"><a ng-href="/newpoll">New Poll</a></li>
+          <li ng-if="isAuthenticated()"><a ng-href="/mypolls">My Polls</a></li>
+          <li ng-if="isAuthenticated()"><a ng-href="/logout">Log out</a></li>
+          <button ng-controller="loginController" ng-if="!isAuthenticated()" class="btn btn-primary btn-twitter" id="signinButton" ng-click="authenticate('twitter')"><i class="fa fa-twitter"></i> Sign in with Twitter</button>
+        </ul>
+      </div><!--/.nav-collapse -->
+      </div>
+  </nav>
+</div>
+
+<div ng-view></div>
+
+
+
+
+

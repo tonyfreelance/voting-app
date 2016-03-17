@@ -1,0 +1,18 @@
+body {
+    margin-top: 70px;
+}
+
+#signinButton {
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+#poll-block {
+    margin-bottom: 0px;
+}
+
+.btn-twitter {
+  color: #fff;
+  background-color: #00aced;
+  border: 1px solid #009fdb;
+}

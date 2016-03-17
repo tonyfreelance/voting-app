@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">App voting</h1>
+    <p class="text-center">Below are polls hosted by Tony-app-voting.</p>
+    <p ng-controller="authenticatedController" ng-show="!isAuthenticated()" class="text-center">Select a poll to see the results and vote, or sign-in to make a new poll.</p>
+    <p ng-controller="authenticatedController" ng-show="isAuthenticated()" class="text-center">Select a poll to see the results and vote, or <a ng-href="/newpoll">create a new poll.</a></p>
+    <div class="voteSection">
+      <ul id="poll-block" ng-repeat="poll in polls | orderBy: '-createdAt' ">
+        <a class="btn btn-default btn-block" ng-href="/polls/{{poll.url}}">{{poll.title}}</a>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">Make a new poll!</h1>
+    <form>
+        <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" name="title" ng-model="title" required>
+        </div>
+        <div class="form-group">
+            <label>Options (seperated by line):</label>
+            <textarea type="text" class="form-control" name="options" rows="4" ng-model="options" ng-list="&#10;" ng-trim="false"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="createPoll()">Make!</button>
+    </form>
+  </div>
+</div>

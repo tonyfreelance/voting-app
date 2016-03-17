@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+        <!--This is section for poll options display -->
+        <div class="col-md-4">
+            <h4>{{poll.title}}</h4>
+            <br>
+            <span><strong>I'd like to vote for...:</strong></span>
+            <form>
+                <div class="form-group">
+                    <select class="form-control" ng-model="selectedOption">
+                      <option value="" disabled>Choose an option</option>
+                      <option value="{{option}}" ng-repeat="option in poll.options">{{option}}</option>
+                      <option ng-if="isAuthenticated() && isOwner()" value="customOption">I'd like a custom option.</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-show="selectedOption == 'customOption'">
+                    <label for="ownOption"><strong>Vote with my own option:</strong></label>
+                    <input class="form-control" ng-model="ownOption" id="ownOption"/>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="updatePoll()">Submit</button>
+                <a socialshare socialshare-provider="twitter" socialshare-text="{{poll.title}} | Voting app" socialshare-url="https://sails-test-tonyfreelance-1.c9users.io/polls/{{poll.url}}" class="btn btn-info btn-block" ng-href=""><i class="fa fa-twitter"></i> Share on Twitter</a>
+            </form>
+        </div>
+        <!--This is section for chart-->
+        <div class="col-md-6 col-md-offset-1">
+            <div id="canvas-holder">
+			    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="true" width="690" height="345"></canvas> 
+		    </div>
+		    <button ng-if="isAuthenticated() && isOwner()" class="btn btn-danger btn-block" ng-click="deletePoll()">Remove this Poll</button>
+        </div>
+    </div>
+    <div class="row">
+        <span>{{error}}</span>
+        <span>{{test}}</span>
+        <span>{{test2}}</span>
+    </div>
+  </div>
+</div>
