@@ -63,8 +63,6 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             height: 645
         }
     });
-
-    var loginRequired =
 }]);
 
 // Share the poll data between views
