@@ -58,11 +58,11 @@ module.exports.connections = {
   ***************************************************************************/
   mLabMongoDB: {
     adapter: 'sails-mongo',
-    host: 'ds015899.mlab.com',
-    port: 15899,
-    user: 'heroku_nspctjlw',
-    password: 's45n9fa55386f0iukk71efi1o7',
-    database: 'heroku_nspctjlw'
+    host: 'ds015929.mlab.com',
+    port: 15929,
+    user: 'heroku_ht9wshwt',
+    password: '1gqvugqi753sedpk61hlqtmcfv',
+    database: 'heroku_ht9wshwt'
   },
 
   /***************************************************************************
