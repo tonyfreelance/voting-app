@@ -17,32 +17,14 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             templateUrl: 'partial/newpoll',
             controller: 'newPollController',
             resolve: {
-                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
-                    var deferred = $q.defer();
-                    if ($auth.isAuthenticated()) {
-                        deferred.resolve();
-                    }
-                    else {
-                        $location.path('/polls');
-                    }
-                    return deferred.promise;
-                }]
+                loginRequired: loginRequired
             }
         })
         .when('/mypolls', {
             templateUrl: 'partial/mypolls',
             controller: 'myPollController',
             resolve: {
-                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
-                    var deferred = $q.defer();
-                    if ($auth.isAuthenticated()) {
-                        deferred.resolve();
-                    }
-                    else {
-                        $location.path('/polls');
-                    }
-                    return deferred.promise;
-                }]
+                loginRequired: loginRequired
             }
         })
         .when('/logout', {
@@ -64,16 +46,16 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
         }
     });
 
-    // var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
-    //     var deferred = $q.defer();
-    //     if ($auth.isAuthenticated()) {
-    //         deferred.resolve();
-    //     }
-    //     else {
-    //         $location.path('/polls');
-    //     }
-    //     return deferred.promise;
-    // }];
+    var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
+        var deferred = $q.defer();
+        if ($auth.isAuthenticated()) {
+            deferred.resolve();
+        }
+        else {
+            $location.path('/polls');
+        }
+        return deferred.promise;
+    }];
 }]);
 
 // Share the poll data between views
