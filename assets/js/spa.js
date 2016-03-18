@@ -17,14 +17,32 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             templateUrl: 'partial/newpoll',
             controller: 'newPollController',
             resolve: {
-                loginRequired: loginRequired
+                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
+                    var deferred = $q.defer();
+                    if ($auth.isAuthenticated()) {
+                        deferred.resolve();
+                    }
+                    else {
+                        $location.path('/polls');
+                    }
+                    return deferred.promise;
+                }]
             }
         })
         .when('/mypolls', {
             templateUrl: 'partial/mypolls',
             controller: 'myPollController',
             resolve: {
-                loginRequired: loginRequired
+                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
+                    var deferred = $q.defer();
+                    if ($auth.isAuthenticated()) {
+                        deferred.resolve();
+                    }
+                    else {
+                        $location.path('/polls');
+                    }
+                    return deferred.promise;
+                }]
             }
         })
         .when('/logout', {
@@ -45,17 +63,6 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             height: 645
         }
     });
-
-    var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
-        var deferred = $q.defer();
-        if ($auth.isAuthenticated()) {
-            deferred.resolve();
-        }
-        else {
-            $location.path('/polls');
-        }
-        return deferred.promise;
-    }];
 }]);
 
 // Share the poll data between views
