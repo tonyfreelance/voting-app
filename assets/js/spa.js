@@ -16,34 +16,34 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
         .when('/newpoll', {
             templateUrl: 'partial/newpoll',
             controller: 'newPollController',
-            resolve: {
-                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
-                    var deferred = $q.defer();
-                    if ($auth.isAuthenticated()) {
-                        deferred.resolve();
-                    }
-                    else {
-                        $location.path('/polls');
-                    }
-                    return deferred.promise;
-                }]
-            }
+            // resolve: {
+            //     loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
+            //         var deferred = $q.defer();
+            //         if ($auth.isAuthenticated()) {
+            //             deferred.resolve();
+            //         }
+            //         else {
+            //             $location.path('/polls');
+            //         }
+            //         return deferred.promise;
+            //     }]
+            // }
         })
         .when('/mypolls', {
             templateUrl: 'partial/mypolls',
             controller: 'myPollController',
-            resolve: {
-                loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
-                    var deferred = $q.defer();
-                    if ($auth.isAuthenticated()) {
-                        deferred.resolve();
-                    }
-                    else {
-                        $location.path('/polls');
-                    }
-                    return deferred.promise;
-                }]
-            }
+            // resolve: {
+            //     loginRequired: ['$q', '$location', '$auth', function($q, $location, $auth) {
+            //         var deferred = $q.defer();
+            //         if ($auth.isAuthenticated()) {
+            //             deferred.resolve();
+            //         }
+            //         else {
+            //             $location.path('/polls');
+            //         }
+            //         return deferred.promise;
+            //     }]
+            // }
         })
         .when('/logout', {
             template: null,
