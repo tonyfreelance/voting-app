@@ -17,14 +17,14 @@ myApp.config(['$routeProvider', '$locationProvider', '$authProvider', function($
             templateUrl: 'partial/newpoll',
             controller: 'newPollController',
             resolve: {
-                loginRequired: loginRequired
+                loginRequired: ['loginRequired', loginRequired]
             }
         })
         .when('/mypolls', {
             templateUrl: 'partial/mypolls',
             controller: 'myPollController',
             resolve: {
-                loginRequired: loginRequired
+                loginRequired: ['loginRequired', loginRequired]
             }
         })
         .when('/logout', {
